@@ -1,16 +1,59 @@
-# Hand-gesture-recognition-using-Machine-learning-techniques
+## Hand Gesture Recognition Using Machine Learning Techniques
 
-The Python code 'handDetectorModule' takes the webcam video (a series of images) from the system as an input. The program will check if there are any hands in the input images taken by the camera. If yes, then the module will draw landmarks on the hand based on the mediapipe hand module. Then the image is returned with the landmarks drawn. A list is created that will take all the positions of the landmarks on the hand and return that list.
+### Overview
 
-In the Python module 'gestureMediaController', pyautogui is imported for keyboard and mouse controls.  pycaw library is imported for audio control. Custom gestures were created using the mediapipe framework image output given by the 'handDetectorModule'. The fingertips help with gesture recognition. The results obtained at the end include:
-1. The distance between the index finger and the thumb implements the volume controls(Increase/Decrease).
-2. If the thumb is folded: all the other four fingers are folded, then the media will pause or play.
-3. If three fingers are folded and the little finger is open, then the media will go five seconds forward.
-4. If three fingers are folded and the index finger is open, then the media will go five seconds backward.
+This repository contains Python code for recognizing hand gestures using machine learning techniques to control media playback functions. The implementation leverages the MediaPipe framework for hand detection and tracking, and pyautogui and pycaw libraries for controlling keyboard, mouse, and audio functions, respectively.
 
-Hand gesture detection for media control is an innovative use of machine learning. Hand motions taken by a camera are detected, analyzed, and then used to control different media playback functions like volume, play/pause, forward, and rewind. There are many benefits to using gesture recognition for media control. It provides a touchless and hands-free solution.
-For example, making it a convenient and user-friendly choice. It can also be useful when both hands are busy if there is no direct access to media playback controls.
+### Modules
 
-The application of machine learning techniques, especially image processing and computer vision techniques, is required for the implementation of this technology. These algorithms are useful for real-time tracking the user's hand and position, and then mapping the hand's movement to a specific media control.
+1. **handDetectorModule.py**
+   - **Description**: This module processes video input from the system's webcam to detect hands and draw landmarks on them.
+   - **Functionality**:
+     - Captures webcam video feed.
+     - Detects hands in the input images using MediaPipe's hand detection model.
+     - Draws landmarks on the detected hands.
+     - Creates and returns a list of landmark positions.
 
-The MediaPipe framework, which provides a pre-trained model for hand detection and tracking, is a popular tool for hand gesture recognition. With a set of hand gesture images, this model can be fine-tuned to recognize particular gestures and map them to media control functions.
+2. **gestureMediaControl.py**
+   - **Description**: This module interprets hand gestures detected by `handDetectorModule.py` to control media playback.
+   - **Functionality**:
+     - Imports `pyautogui` for keyboard and mouse controls and `pycaw` for audio controls.
+     - Utilizes custom gestures defined using the landmark data from the hand detection module.
+     - Implements the following controls:
+       - **Volume Control**: Adjusts volume based on the distance between the index finger and thumb.
+       - **Play/Pause**: Toggles media playback when the thumb is folded, and all other fingers are folded.
+       - **Forward**: Skips forward by five seconds when three fingers are folded, and the little finger is open.
+       - **Rewind**: Rewinds by five seconds when three fingers are folded, and the index finger is open.
+
+### Benefits of Hand Gesture Recognition for Media Control
+
+- **Touchless and Hands-Free**: Provides a convenient and user-friendly interface, especially useful when hands are occupied or when there is no direct access to media playback controls.
+- **Real-Time Tracking**: Uses advanced image processing and computer vision techniques for real-time hand tracking and gesture recognition.
+- **Customizable**: The MediaPipe framework allows for fine-tuning the pre-trained model with custom hand gesture images to recognize specific gestures and map them to desired media control functions.
+
+### Implementation Details
+
+- **MediaPipe Framework**: Utilized for hand detection and tracking. It provides a pre-trained model that can be adapted for custom gesture recognition.
+- **pyautogui Library**: Used for simulating keyboard and mouse actions based on recognized gestures.
+- **pycaw Library**: Used for controlling system audio based on recognized gestures.
+
+### Getting Started
+
+To get started with hand gesture recognition for media control, follow these steps:
+
+1. **Install Dependencies**: Ensure you have the necessary Python libraries installed:
+   ```bash
+   pip install numpy pandas mediapipe pyautogui pycaw
+   ```
+
+2. **Run the Modules**: Execute the `handDetectorModule.py` to start detecting hand gestures, and then run `gestureMediaControl.py` to control media playback based on detected gestures.
+
+3. **Customization**: Modify the gesture definitions in `gestureMediaControl.py` to suit your specific needs and preferences.
+
+### Conclusion
+
+Hand gesture recognition for media control is an innovative application of machine learning techniques, providing an intuitive and efficient way to interact with media playback functions. By leveraging the MediaPipe framework and integrating it with libraries like pyautogui and pycaw, this project demonstrates the practical utility of real-time hand gesture detection and recognition.
+
+---
+## Contact
+If you have any questions or suggestions, please feel free to reach out to me at [nvarjunmani07@gmail.com](mailto:nvarjunmani07@gmail.com).
